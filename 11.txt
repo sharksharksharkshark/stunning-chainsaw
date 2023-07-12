@@ -1,0 +1,294 @@
+if getgenv().loaded then
+	error("114514")
+end
+
+getgenv().loaded = true
+
+game:GetService("Players").LocalPlayer.Idled:connect(function()
+	game:GetService("VirtualUser"):Button2Down(Vector2.new(0, 0), workspace.CurrentCamera.CFrame)
+	wait(1)
+	game:GetService("VirtualUser"):Button2Up(Vector2.new(0, 0), workspace.CurrentCamera.CFrame)
+end)
+
+local N3xHub = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+
+local Window = N3xHub:CreateWindow({
+	Name = "Shark Script",
+	LoadingTitle = "Shark Script",
+	LoadingSubtitle = "Zzz",
+})
+
+-- N3xHub Notification
+
+N3xHub:Notify({
+	Title = "亻尔女子",
+	Content = "6",
+	Duration = 10
+})
+
+-- Variables
+
+getgenv().Variables1_1 = {
+	['AutoBiceps'] = false,
+	['AutoBiceps1'] = false,
+	['AutoHands'] = false,
+	['AutoCardio'] = false,
+	['AutoKillNpc'] = false,
+}
+
+getgenv().Variables1_2 = {
+	['DumBell'] = 1,
+	['BarBell'] = 1,
+	['Grip'] = 1,
+	['SpeedThing'] = 1,
+	['NpcFight'] = 1,
+}
+
+getgenv().Variables2_1 = {
+	['AutoBiceps'] = false,
+	['AutoBiceps1'] = false,
+	['AutoHands'] = false,
+	['AutoCardio'] = false,
+	['AutoKillNpc'] = false,
+}
+
+getgenv().Variables2_2 = {
+	['DumBell'] = 1,
+	['BarBell'] = 1,
+	['Grip'] = 1,
+	['SpeedThing'] = 1,
+	['NpcFight'] = 1,
+}
+
+getgenv().Variables3 = {
+	['AutoClaimGift'] = false,
+	['AutoSpinWheel'] = false,
+	['AutoRebirth'] = false,
+	['AutoEquipBest'] = false,
+	['AutoRedeemDaily'] = false,
+}
+
+-- Main Tab
+
+local Tab = Window:CreateTab("菜单") 
+local Section = Tab:CreateSection("菜单")
+
+local Label1 = Tab:CreateLabel(game.Players.LocalPlayer.Name .. " / " .. game.Players.LocalPlayer.DisplayName .. " / " .. game:GetService("Players").LocalPlayer.AccountAge)
+local Label2 = Tab:CreateLabel(os.date("%I:%M:%S %p") .. " / " .. tostring(math.floor(game:GetService("Stats").PerformanceStats.Ping:GetValue() + 0.5)) .. " ms" .. " / " .. identifyexecutor())
+local Label3 = Tab:CreateLabel(game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name .. " / " .. game.PlaceId .. " / " .. game.JobId)
+
+local Toggle = Tab:CreateToggle({
+	Name = "自动索赔礼物",
+	CurrentValue = false,
+	Flag = "Auto_Claim_Gift",
+	Callback = function(Value)
+		getgenv().Variables3.AutoClaimGift = Value
+		if Value == false then
+			warn("关闭！")
+		elseif Value == true then
+			warn("开启！")
+			wait(0.1)
+			N3xHub:Notify({
+				Title = "Shark",
+				Content = "开！",
+				Duration = 10
+			})
+			wait(0.2)
+			while getgenv().Variables3.AutoClaimGift == true do
+				game:GetService("ReplicatedStorage").Packages._Index["sleitnick_knit@1.4.7"].knit.Services.TimedRewardService.RE.onClaim:FireServer("1")
+				task.wait(1)
+				game:GetService("ReplicatedStorage").Packages._Index["sleitnick_knit@1.4.7"].knit.Services.TimedRewardService.RE.onClaim:FireServer("2")
+				task.wait(1)
+				game:GetService("ReplicatedStorage").Packages._Index["sleitnick_knit@1.4.7"].knit.Services.TimedRewardService.RE.onClaim:FireServer("3")
+				task.wait(1)
+				game:GetService("ReplicatedStorage").Packages._Index["sleitnick_knit@1.4.7"].knit.Services.TimedRewardService.RE.onClaim:FireServer("4")
+				task.wait(1)
+				game:GetService("ReplicatedStorage").Packages._Index["sleitnick_knit@1.4.7"].knit.Services.TimedRewardService.RE.onClaim:FireServer("5")
+				task.wait(1)
+				game:GetService("ReplicatedStorage").Packages._Index["sleitnick_knit@1.4.7"].knit.Services.TimedRewardService.RE.onClaim:FireServer("6")
+				task.wait(1)
+				game:GetService("ReplicatedStorage").Packages._Index["sleitnick_knit@1.4.7"].knit.Services.TimedRewardService.RE.onClaim:FireServer("7")
+				task.wait(1)
+				game:GetService("ReplicatedStorage").Packages._Index["sleitnick_knit@1.4.7"].knit.Services.TimedRewardService.RE.onClaim:FireServer("8")
+				task.wait(1)
+				game:GetService("ReplicatedStorage").Packages._Index["sleitnick_knit@1.4.7"].knit.Services.TimedRewardService.RE.onClaim:FireServer("9")
+				task.wait(1)
+				game:GetService("ReplicatedStorage").Packages._Index["sleitnick_knit@1.4.7"].knit.Services.TimedRewardService.RE.onClaim:FireServer("10")
+				task.wait(1)
+				game:GetService("ReplicatedStorage").Packages._Index["sleitnick_knit@1.4.7"].knit.Services.TimedRewardService.RE.onClaim:FireServer("11")
+				task.wait(1)
+				game:GetService("ReplicatedStorage").Packages._Index["sleitnick_knit@1.4.7"].knit.Services.TimedRewardService.RE.onClaim:FireServer("12")
+				task.wait(1)
+			end
+		end
+	end,
+})
+
+local Toggle = Tab:CreateToggle({
+	Name = "抽奖",
+	CurrentValue = false,
+	Flag = "Auto_Spin_Wheel",
+	Callback = function(Value)
+		getgenv().Variables3.AutoSpinWheel = Value
+		if Value == false then
+			warn("Off!")
+		elseif Value == true then
+			warn("On!")
+			wait(0.5)
+			while getgenv().Variables3.AutoSpinWheel == true do
+				game:GetService("ReplicatedStorage").Packages._Index["sleitnick_knit@1.4.7"].knit.Services.SpinService.RE.onSpinRequest:FireServer()
+				task.wait(1)
+			end
+		end
+	end,
+})
+
+local Toggle = Tab:CreateToggle({
+	Name = "自动重生",
+	CurrentValue = false,
+	Flag = "Auto_Rebirth",
+	Callback = function(Value)
+		getgenv().Variables3.AutoRebirth = Value
+		if Value == false then
+			warn("[N3xHub]: AutoRebirth Turned Off!")
+		elseif Value == true then
+			warn("[N3xHub]: AutoRebirth Turned On!")
+			wait(0.5)
+			while getgenv().Variables3.AutoRebirth == true do
+				game:GetService("ReplicatedStorage").Packages._Index["sleitnick_knit@1.4.7"].knit.Services.RebirthService.RE.onRebirthRequest:FireServer()
+				task.wait(1)
+			end
+		end
+	end,
+})
+
+local Toggle = Tab:CreateToggle({
+	Name = "装备最好",
+	CurrentValue = false,
+	Flag = "Auto_Equip_Best",
+	Callback = function(Value)
+		getgenv().Variables3.AutoEquipBest = Value
+		if Value == false then
+			warn("Off!")
+		elseif Value == true then
+			warn("On!")
+			wait(0.5)
+			while getgenv().Variables3.AutoEquipBest == true do
+				game:GetService("ReplicatedStorage").Packages._Index["sleitnick_knit@1.4.7"].knit.Services.PetService.RF.equipBest:InvokeServer(game:GetService("Players").LocalPlayer)
+				task.wait(1)
+			end
+		end
+	end,
+})
+
+local Toggle = Tab:CreateToggle({
+	Name = "每天自动兑换",
+	CurrentValue = false,
+	Flag = "Auto_Redeem_Daily",
+	Callback = function(Value)
+		getgenv().Variables3.AutoRedeemDaily = Value
+		if Value == false then
+			warn("Off!")
+		elseif Value == true then
+			warn("On!")
+			wait(0.5)
+			while getgenv().Variables3.AutoRedeemDaily == true do
+				game:GetService("ReplicatedStorage").Packages._Index["sleitnick_knit@1.4.7"].knit.Services.DailyRewardService.RE.onClaimReward:FireServer()
+				task.wait(1)
+			end
+		end
+	end,
+})
+
+local Button = Tab:CreateButton({
+	Name = "自动锻炼",
+	Callback = function()
+		while true do
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ToolService"):WaitForChild("RE"):WaitForChild("onClick"):FireServer()
+wait(0.001)
+        end
+	end,
+})
+
+local Button = Tab:CreateButton({
+	Name = "自动获胜",
+	Callback = function()
+		while true do
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.4.7"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("ArmWrestleService"):WaitForChild("RE"):WaitForChild("onClickRequest"):FireServer()
+wait(0.001)
+        end
+	end,
+})
+
+local Button = Tab:CreateButton({
+	Name = "兑换所有代码",
+	Callback = function()
+		game:GetService("ReplicatedStorage").Packages._Index["sleitnick_knit@1.4.7"].knit.Services.CodeRedemptionService.RE.onRedeem:FireServer("axel")
+		wait(0.5)
+		game:GetService("ReplicatedStorage").Packages._Index["sleitnick_knit@1.4.7"].knit.Services.CodeRedemptionService.RE.onRedeem:FireServer("knighty")
+	end,
+})
+
+local Button = Tab:CreateButton({
+	Name = "自动抽奖",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/limaspeedy/limaspeedy/main/HubLDS"))()
+	end,
+})
+
+local Button = Tab:CreateButton({
+	Name = "空白～",
+	Callback = function()
+		
+	end,
+})
+
+local Tab = Window:CreateTab("光影") 
+local Section = Tab:CreateSection("光影")
+
+local Button = Tab:CreateButton({
+	Name = "光影（深）",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/MZEEN2424/Graphics/main/Graphics.xml"))()
+	end,
+})
+
+local Button = Tab:CreateButton({
+	Name = "光影（浅）",
+	Callback = function()
+		loadstring(game:HttpGet("https://pastebin.com/raw/jHBfJYmS"))()
+	end,
+})
+
+local Tab = Window:CreateTab("tp") 
+local Section = Tab:CreateSection("tp")
+
+local Button = Tab:CreateButton({
+	Name = "TP世界 1",
+	Callback = function()
+		game:GetService("ReplicatedStorage").Packages._Index["sleitnick_knit@1.4.7"].knit.Services.ZoneService.RE.teleport:FireServer(workspace.Zones["1"].Interactables.Teleports.Locations.BackToSchool)
+	end,
+})
+
+local Button = Tab:CreateButton({
+	Name = "TP世界 2",
+	Callback = function()
+		game:GetService("ReplicatedStorage").Packages._Index["sleitnick_knit@1.4.7"].knit.Services.ZoneService.RE.teleport:FireServer(workspace.Zones["2"].Interactables.Teleports.Locations.Futuristic)
+	end,
+})
+
+local Tab = Window:CreateTab("娱乐") 
+local Section = Tab:CreateSection("娱乐")
+
+local Button = Tab:CreateButton({
+	Name = "转起来",
+	Callback = function()
+		loadstring(game:HttpGet('https://pastebin.com/raw/r97d7dS0', true))()
+	end,
+})
+
+while task.wait() do
+	Label1:Set(game.Players.LocalPlayer.Name .. " / " .. game.Players.LocalPlayer.DisplayName .. " / " .. game:GetService("Players").LocalPlayer.AccountAge)
+	Label2:Set(os.date("%I:%M:%S %p") .. " / " .. tostring(math.floor(game:GetService("Stats").PerformanceStats.Ping:GetValue() + 0.5)) .. " ms" .. " / " .. identifyexecutor())
+	Label3:Set(game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name .. " / " .. game.PlaceId .. " / " .. game.JobId)
+end
